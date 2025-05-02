@@ -4,9 +4,9 @@ import shutil
 import sys
 
 def getUniqueFileName(dest_dir, filename):
-    base, end = os.path.splitext(filename)  # <-- исправлено
+    base, end = os.path.splitext(filename)
     counter = 1
-    while os.path.exists(os.path.join(dest_dir, filename)):  # <-- исправлено
+    while os.path.exists(os.path.join(dest_dir, filename)): 
         filename = f"{base}_{counter}{end}"
         counter += 1
     return filename
@@ -20,7 +20,7 @@ def main():
             curPath = os.path.join(root, file)
             newFilename = getUniqueFileName(outputDir, file)
             newPath = os.path.join(outputDir, newFilename)
-            shutil.copy2(curPath, newPath)  # <-- исправлено (лишняя скобка)
+            shutil.copy2(curPath, newPath)
 
 if __name__ == "__main__":
     main()
